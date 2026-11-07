@@ -1,0 +1,5 @@
+const CACHE='musical-lab-v4-4';
+const ASSETS=['./','./index.html','./styles.css','./app.js','./core.js','./audio.js','./store.js','./cloud.js','./config.js','./instruments.js','./samples.js','./sound-picker.js','./exercise-art.js','./icon.svg','./manifest.json','./icon-192.png','./icon-512.png'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('musical-lab-')&&k!==CACHE).map(k=>caches.delete(k))))));
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(event.request.method!=='GET'||url.origin!==self.location.origin)return;const known=ASSETS.some(p=>new URL(p,self.registration.scope).pathname===url.pathname);if(!known)return;event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();event.waitUntil(caches.open(CACHE).then(c=>c.put(event.request,copy)));}return response;}).catch(()=>caches.match(event.request).then(cached=>cached||Response.error())));});

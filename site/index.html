@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#7254cf"><meta name="description" content="La tua palestra musicale: ascolto, ritmo, lettura, armonia, canto e creatività. Piccole missioni, grandi scoperte.">
+  <title>Musical Training Lab · Fai spazio alla musica</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Vai al contenuto</a>
+  <aside class="sidebar">
+    <a href="#home" class="brand" aria-label="Musical Training Lab, inizio"><span class="brand-symbol">♫</span><span>musical<span class="brand-sub">training lab</span></span></a>
+    <span class="nav-label">IL TUO SPAZIO MUSICALE</span>
+    <nav aria-label="Navigazione principale">
+      <a href="#home" data-nav="home"><span>⌂</span> Esplora</a>
+      <a href="#practice" data-nav="practice"><span>♬</span> Allenati</a>
+      <a href="#studio" data-nav="studio"><span>✦</span> Crea musica</a>
+      <a href="#progress" data-nav="progress"><span>▥</span> I tuoi progressi</a>
+      <a href="#settings" data-nav="settings"><span>⚙</span> Suono e strumenti</a>
+    </nav>
+    <div class="sidebar-note"><div class="mini-plant">♩<span>♪</span></div><strong>Un po’ ogni giorno.</strong><p>La musica cresce<br>insieme a te.</p></div>
+    <a href="#account" class="account-link"><span class="avatar">☺</span><span id="account-label">Il tuo spazio<span class="brand-sub">Accedi e salva il percorso</span></span></a>
+  </aside>
+  <div class="shell">
+    <header class="topbar"><span class="breadcrumb" id="breadcrumb">La tua avventura musicale</span><div class="top-actions"><button class="sound-open" id="sound-open" aria-label="Scegli il suono dalla libreria MIDI">♫ Scegli suono</button><span class="connection" id="connection">Suono integrato</span><button id="audio-toggle" class="icon-button" aria-label="Disattiva audio" aria-pressed="false">♫</button><a class="avatar" href="#account" aria-label="Account">☺</a></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="page-footer"><span>Musical Training Lab</span><span>Ascolta. Prova. Scopri qualcosa di nuovo.</span></footer>
+  </div>
+  <nav class="mobile-nav" aria-label="Navigazione mobile"><a href="#home" data-nav="home">⌂<small>Esplora</small></a><a href="#practice" data-nav="practice">♬<small>Allenati</small></a><a href="#studio" data-nav="studio">✦<small>Crea</small></a><a href="#progress" data-nav="progress">▥<small>Progressi</small></a><a href="#settings" data-nav="settings">⚙<small>Suono</small></a></nav>
+  <div id="toast" role="status" class="toast" hidden></div>
+  <script type="module" src="app.js"></script>
+</body></html>

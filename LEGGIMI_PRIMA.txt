@@ -1,0 +1,44 @@
+MUSICAL TRAINING LAB 4.1 — 7 NOVEMBRE 2026
+
+Questa è la nuova versione completa dei file del progetto.
+L’originale nella cartella Downloads non è stato modificato.
+
+PER PROVARLA
+1. Apri il Terminale nella cartella che contiene questo file.
+2. Esegui:
+   python3 -m http.server 8080 --directory site
+3. Nel browser apri http://localhost:8080
+4. Per fermare il server torna nel Terminale e premi Ctrl+C.
+
+Non aprire index.html con doppio clic: l’app usa moduli JavaScript.
+
+PER PUBBLICARLA
+Carica su GitHub il contenuto di questa cartella.
+Su Render crea uno Static Site collegato al repository:
+- Build Command: true
+- Publish Directory: site
+- Root Directory: vuoto
+
+ACCOUNT ONLINE
+Sono implementati ma non attivi: devi creare il tuo progetto Supabase.
+Nel README.md trovi tutti i passaggi, compreso lo schema SQL da eseguire
+e i due valori pubblici da inserire in site/config.js.
+Senza configurazione l’app funziona come ospite con progressi locali.
+
+AUDIO E MIDI
+Puoi scegliere tutti i 128 strumenti General MIDI dal pulsante in alto.
+La libreria offre ricerca, famiglie, ascolto e preferiti.
+I campioni richiedono internet al primo uso; la sintesi leggera funziona offline.
+I suoni integrati funzionano senza una tastiera esterna.
+In Suono e strumenti puoi abilitare MIDI, scegliere ingresso, uscita,
+canale e strumento. Per usare suoni esterni serve un generatore sonoro
+MIDI riconosciuto dal sistema: non tutte le schede audio lo contengono.
+Compatibilità e latenza vanno provate con il proprio computer e dispositivo.
+
+VERIFICHE E LIMITI
+24 test automatici superati e prove dell’interfaccia nel browser.
+Controllati layout desktop/mobile, ascolto, valutazione, riepilogo e compositore.
+MIDI fisico, microfono reale e Supabase vanno verificati sul tuo setup.
+Il sito non è stato pubblicato né caricato su GitHub in questa sessione.
+
+Tutti i dettagli si trovano in README.md.
