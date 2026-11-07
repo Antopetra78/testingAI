@@ -1,0 +1,73 @@
+MUSICAL TRAINING LAB — PUBBLICAZIONE SU RENDER
+Preparato il 7 novembre 2026.
+
+CONTENUTO
+La cartella site contiene index.html, sw.js, manifest.json e icon.svg.
+È un sito HTML/CSS/JavaScript senza dipendenze npm e senza backend.
+Questa versione salva i dati nel browser: Supabase NON è integrato.
+
+PUBBLICAZIONE
+1. Estrai lo ZIP.
+2. Crea un repository GitHub, per esempio musical-training-lab.
+3. Carica il CONTENUTO della cartella musical-training-render nel repository:
+   site deve essere direttamente alla radice del repository.
+4. Su dashboard.render.com scegli New > Static Site.
+5. Collega GitHub e seleziona il repository.
+6. Name: musical-training-lab (o un nome disponibile).
+7. Branch: il branch su cui hai caricato i file, normalmente main.
+8. Root Directory: lascia vuoto.
+9. Build Command: true
+   È un comando che termina con successo senza compilare: questi file sono già pronti.
+10. Publish Directory: site
+11. Nessuna variabile d'ambiente e nessun comando di avvio sono necessari.
+12. Crea il sito e apri l'URL HTTPS fornito da Render.
+Non serve una regola Rewrite: la navigazione attuale avviene tutta in index.html.
+Se carichi una cartella contenitore aggiuntiva, correggi Root Directory oppure sposta site.
+
+PROVE DOPO LA PUBBLICAZIONE
+- Apri Ascolto, Ritmo e Coordinazione e completa una sessione.
+- Verifica che il diario sia aggiornato anche ricaricando la pagina.
+- Prova audio, esportazione JSON e CSV sul dispositivo effettivo.
+- Dopo una prima visita online, prova l'accesso offline allo stesso indirizzo.
+- La possibilità di installazione dipende dal browser; il manifest contiene solo
+  un'icona SVG, quindi l'installabilità non è stata certificata su tutti i dispositivi.
+
+AGGIORNAMENTI E DATI
+Con auto-deploy attivo, un aggiornamento sul branch collegato pubblica una nuova versione.
+Il service worker aggiornato prova prima la rete, poi usa la cache offline per i soli asset.
+Un nuovo service worker può restare in attesa finché non chiudi le schede dell'app.
+Chiudi tutte le schede e riapri l'app se una vecchia versione rimane visibile.
+I dati dipendono da browser e origine: cambiando dispositivo o dominio non si trasferiscono.
+Esporta il JSON prima di cambiamenti. Il prototipo NON ha una funzione di importazione JSON.
+
+SUPABASE: COSA SERVE PER LA SINCRONIZZAZIONE
+Creare un progetto Supabase da solo non cambia il salvataggio dell'app.
+Per sincronizzare i progressi occorre aggiungere al codice:
+- account e accesso (preferibilmente dell'adulto);
+- client Supabase con Project URL e publishable key;
+- tabella dei progressi collegata all'utente, con Row Level Security;
+- lettura/salvataggio remoto e migrazione esplicita degli eventuali dati locali;
+- gestione offline, conflitti tra dispositivi, logout e separazione dei dati degli account.
+Non inserire secret key, service_role o password database nell'HTML.
+Le variabili d'ambiente Render non sono iniettate automaticamente in questo HTML statico.
+Non è necessario Storage per lo stato JSON attuale: serve solo se si aggiungono file.
+
+CORREZIONI INCLUSE
+- Corretto l'escape degli apici nei pulsanti di ascolto: prima bloccava tutto lo script.
+- Corretto il separatore di riga CSV.
+- Evitata la condivisione degli oggetti interni tra stato iniziale e valori predefiniti.
+- Limitata la cache ai file dell'app e aggiunto il recupero online delle nuove versioni.
+
+LIMITI DEL PROTOTIPO ANCORA PRESENTI
+- Durata e focus si salvano ma non governano ancora il percorso.
+- Il confronto di altezza può generare due note uguali senza offrire la risposta corretta.
+- L'esercizio ritmico necessita revisione: le pause producono un suono e il riferimento
+  temporale del primo tocco non rappresenta correttamente i pattern con pausa iniziale.
+- Nessuna sincronizzazione cloud, login o importazione backup.
+Controlli svolti: parsing JavaScript e prove automatiche mirate in ambiente simulato.
+Audio, installazione PWA e comportamento su dispositivi reali richiedono prove manuali.
+
+FONTI UFFICIALI
+https://render.com/docs/static-sites
+https://supabase.com/docs/guides/getting-started/api-keys
+https://supabase.com/docs/guides/database/postgres/row-level-security
